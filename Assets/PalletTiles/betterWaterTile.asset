@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e4e4fc705376343a3e65b25d94f0e2, type: 3}
+  m_Name: betterWaterTile
+  m_EditorClassIdentifier: 
+  m_Sprites:
+  - {fileID: 21300000, guid: ea852a990c1aac44083f093c11ca87f0, type: 3}
+  - {fileID: 21300000, guid: 133f6c8d9729b274e8d02c13e08dd0fc, type: 3}
+  - {fileID: 21300000, guid: 43230ad4075b1184392826ccb21e2d44, type: 3}
+  - {fileID: 21300000, guid: 00523d855502ce94ba42a24e6c9cb7e4, type: 3}
+  - {fileID: 21300000, guid: 982d90a5b720e534eae8d2d865edad65, type: 3}
+  - {fileID: 21300000, guid: 058c9fa7c396b024fa69b07e358fe347, type: 3}
+  - {fileID: 21300000, guid: 852e2ea2681f3294d89b0f6d90ceed5d, type: 3}
+  - {fileID: 21300000, guid: 7bc2380dee488f64791b300678b57042, type: 3}
+  - {fileID: 21300000, guid: dfcd200cab44d9847948abd6a96c4108, type: 3}
+  - {fileID: 21300000, guid: 0e992f17ca1e7cd48b6c5e957af1b420, type: 3}
+  - {fileID: 21300000, guid: fab041daa700e28468f45fc0b19bb8ef, type: 3}
+  - {fileID: 21300000, guid: 277de0d4f60df0348bf4326da7d0ddd2, type: 3}
+  - {fileID: 21300000, guid: 9144ecd8f467ad647ae1b0f27f505b41, type: 3}
+  - {fileID: 21300000, guid: 0ae0e3d2eb260d741944e7a7546b0b27, type: 3}
+  - {fileID: 21300000, guid: 24e0eacb551f5394eb721a806b4d4533, type: 3}
