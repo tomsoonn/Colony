@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
+//using NUnit.Framework;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
@@ -17,8 +17,8 @@ public class CameraControl : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
-        Assert.Less(leftUpperBound.x, rightBottomBound.x, "incorrect bound values set");
-        Assert.Less(leftUpperBound.y, rightBottomBound.y, "incorrect bound values set");
+        //Assert.Less(leftUpperBound.x, rightBottomBound.x, "incorrect bound values set");
+        //Assert.Less(leftUpperBound.y, rightBottomBound.y, "incorrect bound values set");
     }
 
     private void Update()
