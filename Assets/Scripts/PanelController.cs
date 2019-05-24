@@ -5,10 +5,16 @@ using UnityEngine.UI;
 
 public class PanelController : MonoBehaviour
 {
+    public static PanelController me;
     private GameObject _lastDisplayImage;
     public GameObject displayImage;
     internal ActionsShower LastActionsShower;
     private Action _currentAction;
+
+    void Awake()
+    {
+        me = this;
+    }
 
     private void Start()
     {
@@ -30,6 +36,7 @@ public class PanelController : MonoBehaviour
         if (pointerData.button == PointerEventData.InputButton.Right)
         {
             Clean();
+            BuildingStore.me.cleanSelectedBuilding();
         }
         else if (LastActionsShower && _currentAction)
         {
@@ -40,6 +47,9 @@ public class PanelController : MonoBehaviour
         {
             Clean();
         }
+
+        BuildingStore.me.CreatingBuilding(Camera.main.ScreenToWorldPoint(pointerData.position));
+
     }
 
     public void Clean()

@@ -210,7 +210,7 @@ RectTransform:
   - {fileID: 339687863}
   - {fileID: 497793656}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -424,7 +424,7 @@ Transform:
   - {fileID: 1124537165}
   - {fileID: 1933898214}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &283061143 stripped
 Transform:
@@ -2355,7 +2355,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &963608868
 PrefabInstance:
@@ -2455,7 +2455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4619410475342472, guid: c59887df4a4b84149afffda3e9ea387d, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c59887df4a4b84149afffda3e9ea387d, type: 3}
@@ -2505,7 +2505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213913798501158, guid: c28682dc79b2341658ece6e278f0e4c5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c28682dc79b2341658ece6e278f0e4c5, type: 3}
@@ -2573,7 +2573,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1124537165 stripped
 Transform:
@@ -2737,7 +2737,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1297208649
 MonoBehaviour:
@@ -22644,7 +22644,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1574987635}
   - component: {fileID: 1574987634}
-  m_Layer: 0
+  - component: {fileID: 1574987636}
+  m_Layer: 5
   m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22677,10 +22678,29 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.49445271, y: 0.37408724, z: 0.41929558}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1927076639}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1574987636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574987633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11aba0fb7520b7d4096ff120c423ced8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildings:
+  - {fileID: 1927076638}
+  selectedBuilding: {fileID: 0}
+  tempWorkerStore: []
+  buildingsInScene: []
+  curBuildScr: {fileID: 0}
 --- !u!4 &1620524650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4646727949314066, guid: 4892374c1516440e2a5609b5a638d56a,
@@ -22949,6 +22969,55 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1284001837}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1927076638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927076639}
+  - component: {fileID: 1927076640}
+  m_Layer: 8
+  m_Name: House
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1927076639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927076638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1574987635}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1927076640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927076638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2061bc671c0512b4bad5aa29b2fb11f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: House
+  woodCost: 0
+  stoneCost: 0
+  foodCost: 0
+  goldCost: 0
+  buildingSprite: {fileID: 21300000, guid: 71111bf3a14f1774ab7f52fdac04fd26, type: 3}
 --- !u!4 &1933898214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4646727949314066, guid: 4892374c1516440e2a5609b5a638d56a,
