@@ -22676,10 +22676,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a2d528668b60948b887bbb75eb2b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 0
-  wood: 0
-  stone: 0
-  gold: 0
+  food: 50
+  wood: 50
+  stone: 50
+  gold: 50
 --- !u!4 &1574987635
 Transform:
   m_ObjectHideFlags: 0
@@ -23041,8 +23041,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: House
-  woodCost: 0
-  stoneCost: 0
+  woodCost: 10
+  stoneCost: 5
   foodCost: 0
   goldCost: 0
   buildingSprite: {fileID: 21300000, guid: 71111bf3a14f1774ab7f52fdac04fd26, type: 3}

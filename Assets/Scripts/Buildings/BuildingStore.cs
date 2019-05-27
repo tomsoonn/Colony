@@ -68,18 +68,26 @@ public class BuildingStore : MonoBehaviour
             Building selectedBuildScript = selectedBuilding.GetComponent<Building>();
             if (selectedBuildScript != null)
             {
-                Vector3 spawnPos = new Vector3(vector2.x, vector2.y, 0);
-                spawnPos.z = 0;
-                GameObject built = (GameObject)Instantiate(BuildingStore.me.getToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
-                SpriteRenderer sr = built.AddComponent<SpriteRenderer>();
-                sr.sprite = built.GetComponent<Building>().buildingSprite;
-                sr.sortingOrder = 10;
-                built.AddComponent<BoxCollider2D>();
-                built.SetActive(true);
-                buildingsInScene.Add(built.GetComponent<Building>());
-                if (built.GetComponent<Building>().name.Equals("House"))
+                if (ResourceManager.me.canWeBulid(selectedBuildScript))
                 {
-                    UnitsManager.me.addHouse(built);
+                    Vector3 spawnPos = new Vector3(vector2.x, vector2.y, 0);
+                    spawnPos.z = 0;
+                    GameObject built = (GameObject)Instantiate(BuildingStore.me.getToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
+                    SpriteRenderer sr = built.AddComponent<SpriteRenderer>();
+                    sr.sprite = built.GetComponent<Building>().buildingSprite;
+                    sr.sortingOrder = 10;
+                    built.AddComponent<BoxCollider2D>();
+                    built.SetActive(true);
+                    buildingsInScene.Add(built.GetComponent<Building>());
+                    ResourceManager.me.buildBuilding(selectedBuildScript);
+                    if (built.GetComponent<Building>().name.Equals("House"))
+                    {
+                        UnitsManager.me.addHouse(built);
+                    }
+                }
+                else
+                {
+                    //TODO Not enough resources warning
                 }
             }
         }

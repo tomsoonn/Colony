@@ -26,12 +26,12 @@ public class ResourceManager : MonoBehaviour
 
     public void ReduceResources(string resource, int amount)
     {
-        changeResurceAmount(resource, amount * -1);
+        ChangeResurceAmount(resource, amount * -1);
     }
 
     public void IncreaseResources(string resource, int amount)
     {
-        changeResurceAmount(resource, amount);
+        ChangeResurceAmount(resource, amount);
     }
 
     public bool CheckResourceAmount(string resource, int amount)
@@ -39,7 +39,7 @@ public class ResourceManager : MonoBehaviour
         switch (resource)
         {
             case "food":
-                if (food > amount)
+                if (food >= amount)
                 {
                     return true;
                 } else
@@ -47,7 +47,7 @@ public class ResourceManager : MonoBehaviour
                     return false;
                 }
             case "wood":
-                if (wood > amount)
+                if (wood >= amount)
                 {
                     return true;
                 } else
@@ -55,7 +55,7 @@ public class ResourceManager : MonoBehaviour
                     return false;
                 }
             case "stone":
-                if (stone > amount)
+                if (stone >= amount)
                 {
                     return true;
                 }
@@ -64,7 +64,7 @@ public class ResourceManager : MonoBehaviour
                     return false;
                 }
             case "gold":
-                if (gold > amount)
+                if (gold >= amount)
                 {
                     return true;
                 }
@@ -78,7 +78,7 @@ public class ResourceManager : MonoBehaviour
         return false;
     }
 
-    public void changeResurceAmount(string resource, int amount)
+    public void ChangeResurceAmount(string resource, int amount)
     {
         switch (resource)
         {
@@ -97,6 +97,22 @@ public class ResourceManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public bool canWeBulid(Building ba)
+    {
+        return (CheckResourceAmount("wood", ba.woodCost)
+            && CheckResourceAmount("food", ba.foodCost)
+            && CheckResourceAmount("stone", ba.stoneCost)
+            && CheckResourceAmount("gold", ba.goldCost));
+    }
+
+    public void buildBuilding(Building toBuild)
+    {
+        ChangeResurceAmount("wood", toBuild.woodCost * -1);
+        ChangeResurceAmount("food", toBuild.foodCost * -1);
+        ChangeResurceAmount("stone", toBuild.stoneCost * -1);
+        ChangeResurceAmount("gold", toBuild.goldCost * -1);
     }
 
     float originalWidth = 1920.0f;
