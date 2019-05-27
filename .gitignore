@@ -36,3 +36,13 @@ sysinfo.txt
 *.unitypackage
 
 Logs/
+
+# differnet version overriding files
+Packages/manifest.json
+ProjectSettings/PresetManager.asset
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/VFXManager.asset
+
+# rider config
+.idea/*
+
