@@ -102,7 +102,7 @@ public class ResourceManager : MonoBehaviour
     float originalWidth = 1920.0f;
     float originalHeight = 1080.0f;
     Vector3 scale;
-    float dispWidth = 1920.0f / 4;
+    float dispWidth = 1920.0f / 5;
     
     void OnGUI()
     {

@@ -22645,6 +22645,7 @@ GameObject:
   - component: {fileID: 1574987635}
   - component: {fileID: 1574987634}
   - component: {fileID: 1574987636}
+  - component: {fileID: 1574987637}
   m_Layer: 5
   m_Name: GameController
   m_TagString: Untagged
@@ -22698,9 +22699,23 @@ MonoBehaviour:
   buildings:
   - {fileID: 1927076638}
   selectedBuilding: {fileID: 0}
-  tempWorkerStore: []
   buildingsInScene: []
-  curBuildScr: {fileID: 0}
+--- !u!114 &1574987637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574987633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9192d26f9588a64bba581a1b3a23883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myHouses: []
+  units: []
+  populationLimit: 0
+  currentPoplualtion: 0
 --- !u!4 &1620524650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4646727949314066, guid: 4892374c1516440e2a5609b5a638d56a,

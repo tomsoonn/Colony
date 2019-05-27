@@ -12,9 +12,8 @@ public class BuildingStore : MonoBehaviour
     [SerializeField]
     GameObject selectedBuilding;
 
-    public List<GameObject> tempWorkerStore;
     public List<Building> buildingsInScene;
-    public Building curBuildScr;
+
     void Awake()
     {
         me = this;
@@ -78,6 +77,10 @@ public class BuildingStore : MonoBehaviour
                 built.AddComponent<BoxCollider2D>();
                 built.SetActive(true);
                 buildingsInScene.Add(built.GetComponent<Building>());
+                if (built.GetComponent<Building>().name.Equals("House"))
+                {
+                    UnitsManager.me.addHouse(built);
+                }
             }
         }
         cleanSelectedBuilding();
