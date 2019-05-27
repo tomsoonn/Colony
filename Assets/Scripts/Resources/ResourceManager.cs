@@ -7,6 +7,8 @@ public class ResourceManager : MonoBehaviour
     public static ResourceManager me;
     public int food = 0, wood = 0, stone = 0, gold = 0;
 
+    float timer = 1.0f;
+
     void Awake()
     {
         me = this;

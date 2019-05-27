@@ -30,6 +30,7 @@ public class PanelController : MonoBehaviour
 
     public void OnClick(BaseEventData pointer)
     {
+        Debug.Log("Click detected");
         var pointerData = pointer as PointerEventData;
         if (pointerData == null) return;
 
@@ -48,7 +49,7 @@ public class PanelController : MonoBehaviour
             Clean();
         }
 
-        BuildingStore.me.CreatingBuilding(Camera.main.ScreenToWorldPoint(pointerData.position));
+        BuildingStore.me.CreateBuilding(Camera.main.ScreenToWorldPoint(pointerData.position));
 
     }
 

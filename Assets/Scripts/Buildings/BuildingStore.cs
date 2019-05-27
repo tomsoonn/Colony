@@ -41,26 +41,7 @@ public class BuildingStore : MonoBehaviour
         selectedBuilding = null;
     }
 
-    void OnGUI()
-    {
-		int yMod = 0;
-		foreach (GameObject b in buildings) {
-				
-			try {
-				Building buildingScr = b.GetComponent<Building> ();
-				Rect pos = new Rect (50, 50 + (50 * yMod), 100, 50);
-				if (GUI.Button (pos,buildingScr.name)) {
-					selectedBuilding = b;
-                    PanelController.me.Clean();
-				}
-				yMod+=1;
-			} catch {
-				Debug.Log ("Building missing a component");
-			}
-		}
-    }
-
-    public void CreatingBuilding(Vector2 vector2)
+    public void CreateBuilding(Vector2 vector2)
     {
         GameObject selectedBuilding = BuildingStore.me.getToBuild();
         if (selectedBuilding != null)
@@ -92,6 +73,44 @@ public class BuildingStore : MonoBehaviour
             }
         }
         cleanSelectedBuilding();
+
+    }
+
+    void OnGUI()
+    {
+        int yMod = 0;
+        foreach (GameObject b in buildings)
+        {
+
+            try
+            {
+                Building buildingScr = b.GetComponent<Building>();
+                Rect pos = new Rect(10, 50 + (30 * yMod), 70, 30);
+                if (GUI.Button(pos, buildingScr.name))
+                {
+
+                    selectedBuilding = b;
+                    PanelController.me.Clean();
+                }
+                yMod += 1;
+            }
+            catch
+            {
+                Debug.Log("Building missing a component");
+            }
+        }
+    }
+
+    public void OnClick(BaseEventData pointer)
+    {
+        var pointerData = pointer as PointerEventData;
+        if (pointerData == null) return;
+
+        if (pointerData.button == PointerEventData.InputButton.Right)
+        {
+            BuildingStore.me.cleanSelectedBuilding();
+        }
+        BuildingStore.me.CreateBuilding(Camera.main.ScreenToWorldPoint(pointerData.position));
 
     }
 }
