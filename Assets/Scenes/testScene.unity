@@ -2272,13 +2272,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Farm
+  foodCost: 0
   woodCost: 20
   stoneCost: 10
-  foodCost: 0
   goldCost: 5
   buildingSprite: {fileID: 21300000, guid: d1754fb2db8a890458483443bffffed2, type: 3}
-  prodAmount: 1
-  prodTime: 2
+  ProdAmount: 1
+  ProdTime: 2
 --- !u!4 &735211958
 Transform:
   m_ObjectHideFlags: 0
@@ -23104,9 +23104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: House
+  foodCost: 0
   woodCost: 10
   stoneCost: 5
-  foodCost: 0
   goldCost: 0
   buildingSprite: {fileID: 21300000, guid: 71111bf3a14f1774ab7f52fdac04fd26, type: 3}
 --- !u!4 &1933898214 stripped

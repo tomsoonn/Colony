@@ -7,8 +7,6 @@ public class ResourceManager : MonoBehaviour
     public static ResourceManager me;
     public int food = 0, wood = 0, stone = 0, gold = 0;
 
-    float timer = 1.0f;
-
     void Awake()
     {
         me = this;
@@ -111,10 +109,10 @@ public class ResourceManager : MonoBehaviour
 
     public void BuildBuilding(Building toBuild)
     {
-        ChangeResurceAmount("wood", toBuild.woodCost * -1);
-        ChangeResurceAmount("food", toBuild.foodCost * -1);
-        ChangeResurceAmount("stone", toBuild.stoneCost * -1);
-        ChangeResurceAmount("gold", toBuild.goldCost * -1);
+        ReduceResources("wood", toBuild.woodCost);
+        ReduceResources("food", toBuild.foodCost);
+        ReduceResources("stone", toBuild.stoneCost);
+        ReduceResources("gold", toBuild.goldCost);
     }
 
     float originalWidth = 1920.0f;

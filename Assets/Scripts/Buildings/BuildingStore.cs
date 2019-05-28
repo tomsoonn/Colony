@@ -52,7 +52,6 @@ public class BuildingStore : MonoBehaviour
                 if (ResourceManager.me.CanWeBulid(selectedBuildScript))
                 {
                     Vector3 spawnPos = new Vector3(vector2.x, vector2.y, 0);
-                    spawnPos.z = 0;
                     GameObject built = (GameObject)Instantiate(BuildingStore.me.GetToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
                     SpriteRenderer sr = built.AddComponent<SpriteRenderer>();
                     sr.sprite = built.GetComponent<Building>().buildingSprite;
@@ -65,10 +64,12 @@ public class BuildingStore : MonoBehaviour
                     {
                         UnitsManager.me.AddHouse(built);
                     }
+                    Debug.Log("Building built");
                 }
                 else
                 {
                     //TODO Not enough resources warning
+                    Debug.Log("Not enough resources");
                 }
             }
         }

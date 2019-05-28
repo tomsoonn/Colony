@@ -5,7 +5,7 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     public string name;
-    public int woodCost, stoneCost, foodCost, goldCost;
+    public int foodCost, woodCost, stoneCost, goldCost;
     public Sprite buildingSprite;
     SpriteRenderer sr;
 
