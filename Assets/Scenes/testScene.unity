@@ -380,11 +380,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 212042310725739862, guid: 4892374c1516440e2a5609b5a638d56a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 9
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4892374c1516440e2a5609b5a638d56a, type: 3}
 --- !u!4 &245105524 stripped
@@ -2573,6 +2568,16 @@ PrefabInstance:
       propertyPath: HP
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114998933363135308, guid: c28682dc79b2341658ece6e278f0e4c5,
+        type: 3}
+      propertyPath: targetDelta
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114998933363135308, guid: c28682dc79b2341658ece6e278f0e4c5,
+        type: 3}
+      propertyPath: amount
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c28682dc79b2341658ece6e278f0e4c5, type: 3}
 --- !u!1 &1066784606 stripped
@@ -2843,7 +2848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 567
   m_MaxRayIntersections: 0
 --- !u!1 &1510933449
 GameObject:

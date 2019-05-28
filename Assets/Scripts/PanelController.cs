@@ -139,6 +139,7 @@ public class PanelController : MonoBehaviour
         if (oldToggle)
         {
             oldToggle.isOn = false;
+            oldToggle.GetComponentInParent<Animator>().Rebind();
         }
         _currentAction = null;
     }

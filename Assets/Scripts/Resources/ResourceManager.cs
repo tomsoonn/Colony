@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,12 +27,12 @@ public class ResourceManager : MonoBehaviour
 
     public void ReduceResources(string resource, int amount)
     {
-        ChangeResurceAmount(resource, amount * -1);
+        ChangeResourceAmount(resource, amount * -1);
     }
 
     public void IncreaseResources(string resource, int amount)
     {
-        ChangeResurceAmount(resource, amount);
+        ChangeResourceAmount(resource, amount);
     }
 
     public bool CheckResourceAmount(string resource, int amount)
@@ -78,7 +79,19 @@ public class ResourceManager : MonoBehaviour
         return false;
     }
 
-    public void ChangeResurceAmount(string resource, int amount)
+    public void ChangeResourceAmount(Resource res, int amount)
+    {
+        var @switch = new Dictionary<Type, System.Action>
+        {
+            {typeof(Food), () => { food += amount; }},
+            {typeof(Gold), () => { gold += amount; }},
+            {typeof(Wood), () => { wood += amount; }},
+            {typeof(Stone), () => { stone += amount; }},
+        };
+        @switch[res.GetType()]();
+    }
+    
+    public void ChangeResourceAmount(string resource, int amount)
     {
         switch (resource)
         {

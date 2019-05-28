@@ -9,7 +9,6 @@ public class SwitchToggle : MonoBehaviour
     private static readonly int Toggled = Animator.StringToHash("Toggled");
     private static readonly int IsPressed = Animator.StringToHash("IsPressed");
 
-
     public void OnValueChanged()
     {
         var toggle = gameObject.GetComponent<Toggle>();
