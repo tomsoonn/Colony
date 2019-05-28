@@ -88,7 +88,6 @@ public class BuildingStore : MonoBehaviour
                 Rect pos = new Rect(10, 50 + (30 * yMod), 70, 30);
                 if (GUI.Button(pos, buildingScr.name))
                 {
-
                     selectedBuilding = b;
                     PanelController.me.Clean();
                 }

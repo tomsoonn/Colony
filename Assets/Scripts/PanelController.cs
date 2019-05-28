@@ -39,8 +39,7 @@ public class PanelController : MonoBehaviour
         if (pointerData.button == PointerEventData.InputButton.Right)
         {
             Clean();
-            BuildingStore.me.cleanSelectedBuilding();
-            buildFlag = false;
+            CleanBuilding();
         }
         else if (LastActionsShower && _currentAction)
         {
@@ -74,6 +73,12 @@ public class PanelController : MonoBehaviour
         TurnOffLastActionShower();
         CleanImage();
         GetComponent<CanvasGroup>().alpha = 0;
+    }
+
+    public void CleanBuilding()
+    {
+        BuildingStore.me.cleanSelectedBuilding();
+        buildFlag = false;
     }
 
     private void TurnOffLastActionShower()
