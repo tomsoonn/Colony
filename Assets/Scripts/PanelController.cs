@@ -11,6 +11,8 @@ public class PanelController : MonoBehaviour
     internal ActionsShower LastActionsShower;
     private Action _currentAction;
 
+    bool buildFlag = false;
+
     void Awake()
     {
         me = this;
@@ -38,6 +40,7 @@ public class PanelController : MonoBehaviour
         {
             Clean();
             BuildingStore.me.cleanSelectedBuilding();
+            buildFlag = false;
         }
         else if (LastActionsShower && _currentAction)
         {
@@ -49,8 +52,19 @@ public class PanelController : MonoBehaviour
             Clean();
         }
 
-        BuildingStore.me.CreateBuilding(Camera.main.ScreenToWorldPoint(pointerData.position));
-
+        GameObject selectedBuilding = BuildingStore.me.getToBuild();
+        if (selectedBuilding != null)
+        {
+            if (buildFlag)
+            {
+                BuildingStore.me.CreateBuilding(Camera.main.ScreenToWorldPoint(pointerData.position));
+                buildFlag = false;
+            }
+            else
+            {
+                buildFlag = true;
+            }
+        }
     }
 
     public void Clean()

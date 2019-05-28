@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Farm : Building
+public class Unit : MonoBehaviour
 {
-    public int prodAmount = 1;
-    public float prodTime = 2.0f;
+    public int eatAmount = 1;
+    public float eatTime = 5.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("produceFood");
+        StartCoroutine("eatFood");
     }
 
     // Update is called once per frame
@@ -19,12 +19,12 @@ public class Farm : Building
         
     }
 
-    IEnumerator produceFood()
+    IEnumerator eatFood()
     {
         for (; ; )
         {
-            yield return new WaitForSeconds(prodTime);
-            ResourceManager.me.IncreaseResources("food", prodAmount);
+            yield return new WaitForSeconds(eatTime);
+            ResourceManager.me.ReduceResources("food", eatAmount);
         }
     }
 }
