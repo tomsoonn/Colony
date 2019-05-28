@@ -4,27 +4,40 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public int eatAmount = 1;
-    public float eatTime = 5.0f;
+    public int HP = 10;
+    public int EatAmount = 1;
+    public float EatTime = 5.0f;
+    public int NoFoodHPPenalty = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("eatFood");
+        StartCoroutine("EatFood");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (HP < 1)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    IEnumerator eatFood()
+    IEnumerator EatFood()
     {
         for (; ; )
         {
-            yield return new WaitForSeconds(eatTime);
-            ResourceManager.me.ReduceResources("food", eatAmount);
+            yield return new WaitForSeconds(EatTime);
+            if (ResourceManager.me.CheckResourceAmount("food", EatAmount))
+            {
+                ResourceManager.me.ReduceResources("food", EatAmount);
+
+            }
+            else
+            {
+                HP = HP - NoFoodHPPenalty;
+            }
         }
     }
 }
