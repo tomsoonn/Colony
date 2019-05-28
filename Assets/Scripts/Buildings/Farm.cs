@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Farm : Building
 {
-    public int prodAmount = 1;
-    public float prodTime = 2.0f;
+    public int ProdAmount = 1;
+    public float ProdTime = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("produceFood");
+        StartCoroutine("ProduceFood");
     }
 
     // Update is called once per frame
@@ -19,12 +19,12 @@ public class Farm : Building
         
     }
 
-    IEnumerator produceFood()
+    IEnumerator ProduceFood()
     {
         for (; ; )
         {
-            yield return new WaitForSeconds(prodTime);
-            ResourceManager.me.IncreaseResources("food", prodAmount);
+            yield return new WaitForSeconds(ProdTime);
+            ResourceManager.me.IncreaseResources("food", ProdAmount);
         }
     }
 }

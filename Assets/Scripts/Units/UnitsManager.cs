@@ -18,58 +18,58 @@ public class UnitsManager : MonoBehaviour
         myHouses = new List<GameObject>();
     }
 
-    public void addHouse(GameObject house)
+    public void AddHouse(GameObject house)
     {
         myHouses.Add(house);
-        calculateMaxPopulation();
+        CalculateMaxPopulation();
     }
 
-    public void removeHouse(GameObject house)
+    public void RemoveHouse(GameObject house)
     {
         myHouses.Remove(house);
-        calculateMaxPopulation();
+        CalculateMaxPopulation();
     }
 
-    public void addUnit(GameObject g)
+    public void AddUnit(GameObject g)
     {
         units.Add(g);
     }
 
-    public void removeUnit(GameObject g)
+    public void RemoveUnit(GameObject g)
     {
         units.Remove(g);
     }
 
-    void calculateMaxPopulation()
+    void CalculateMaxPopulation()
     {
         int popMax = myHouses.Count * 2;
         populationLimit = popMax;
     }
 
-    void calculateCurrentPopulation()
+    void CalculateCurrentPopulation()
     {
         int popCount = 0;
         popCount += units.Count;
         currentPoplualtion = popCount;
     }
 
-    public bool canWeConstructUnit()
+    public bool CanWeConstructUnit()
     {
         return populationLimit >= currentPoplualtion;
     }
 
     void Update()
     {
-        moniterPopulation();
+        MoniterPopulation();
     }
 
-    void moniterPopulation()
+    void MoniterPopulation()
     {
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            calculateMaxPopulation();
-            calculateCurrentPopulation();
+            CalculateMaxPopulation();
+            CalculateCurrentPopulation();
             timer = 1.0f;
         }
     }

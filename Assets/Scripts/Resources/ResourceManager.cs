@@ -101,7 +101,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public bool canWeBulid(Building ba)
+    public bool CanWeBulid(Building ba)
     {
         return (CheckResourceAmount("wood", ba.woodCost)
             && CheckResourceAmount("food", ba.foodCost)
@@ -109,7 +109,7 @@ public class ResourceManager : MonoBehaviour
             && CheckResourceAmount("gold", ba.goldCost));
     }
 
-    public void buildBuilding(Building toBuild)
+    public void BuildBuilding(Building toBuild)
     {
         ChangeResurceAmount("wood", toBuild.woodCost * -1);
         ChangeResurceAmount("food", toBuild.foodCost * -1);

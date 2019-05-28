@@ -51,7 +51,7 @@ public class PanelController : MonoBehaviour
             Clean();
         }
 
-        GameObject selectedBuilding = BuildingStore.me.getToBuild();
+        GameObject selectedBuilding = BuildingStore.me.GetToBuild();
         if (selectedBuilding != null)
         {
             if (buildFlag)
@@ -77,7 +77,7 @@ public class PanelController : MonoBehaviour
 
     public void CleanBuilding()
     {
-        BuildingStore.me.cleanSelectedBuilding();
+        BuildingStore.me.CleanSelectedBuilding();
         buildFlag = false;
     }
 

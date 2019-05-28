@@ -31,39 +31,39 @@ public class BuildingStore : MonoBehaviour
         
     }
 
-    public GameObject getToBuild()
+    public GameObject GetToBuild()
     {
         return selectedBuilding;
     }
 
-    public void cleanSelectedBuilding()
+    public void CleanSelectedBuilding()
     {
         selectedBuilding = null;
     }
 
     public void CreateBuilding(Vector2 vector2)
     {
-        GameObject selectedBuilding = BuildingStore.me.getToBuild();
+        GameObject selectedBuilding = BuildingStore.me.GetToBuild();
         if (selectedBuilding != null)
         {
             Building selectedBuildScript = selectedBuilding.GetComponent<Building>();
             if (selectedBuildScript != null)
             {
-                if (ResourceManager.me.canWeBulid(selectedBuildScript))
+                if (ResourceManager.me.CanWeBulid(selectedBuildScript))
                 {
                     Vector3 spawnPos = new Vector3(vector2.x, vector2.y, 0);
                     spawnPos.z = 0;
-                    GameObject built = (GameObject)Instantiate(BuildingStore.me.getToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
+                    GameObject built = (GameObject)Instantiate(BuildingStore.me.GetToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
                     SpriteRenderer sr = built.AddComponent<SpriteRenderer>();
                     sr.sprite = built.GetComponent<Building>().buildingSprite;
                     sr.sortingOrder = 10;
                     built.AddComponent<BoxCollider2D>();
                     built.SetActive(true);
                     buildingsInScene.Add(built.GetComponent<Building>());
-                    ResourceManager.me.buildBuilding(selectedBuildScript);
+                    ResourceManager.me.BuildBuilding(selectedBuildScript);
                     if (built.GetComponent<Building>().name.Equals("House"))
                     {
-                        UnitsManager.me.addHouse(built);
+                        UnitsManager.me.AddHouse(built);
                     }
                 }
                 else
@@ -72,7 +72,7 @@ public class BuildingStore : MonoBehaviour
                 }
             }
         }
-        cleanSelectedBuilding();
+        CleanSelectedBuilding();
 
     }
 
@@ -98,18 +98,5 @@ public class BuildingStore : MonoBehaviour
                 Debug.Log("Building missing a component");
             }
         }
-    }
-
-    public void OnClick(BaseEventData pointer)
-    {
-        var pointerData = pointer as PointerEventData;
-        if (pointerData == null) return;
-
-        if (pointerData.button == PointerEventData.InputButton.Right)
-        {
-            BuildingStore.me.cleanSelectedBuilding();
-        }
-        BuildingStore.me.CreateBuilding(Camera.main.ScreenToWorldPoint(pointerData.position));
-
     }
 }
