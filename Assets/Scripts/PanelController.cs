@@ -11,8 +11,6 @@ public class PanelController : MonoBehaviour
     internal ActionsShower LastActionsShower;
     private Action _currentAction;
 
-    bool buildFlag = false;
-
     void Awake()
     {
         me = this;
@@ -39,7 +37,7 @@ public class PanelController : MonoBehaviour
         if (pointerData.button == PointerEventData.InputButton.Right)
         {
             Clean();
-            CleanBuilding();
+            CleanBuildStore();
         }
         else if (LastActionsShower && _currentAction)
         {
@@ -50,19 +48,10 @@ public class PanelController : MonoBehaviour
         {
             Clean();
         }
-
         GameObject selectedBuilding = BuildingStore.me.GetToBuild();
         if (selectedBuilding != null)
         {
-            if (buildFlag)
-            {
                 BuildingStore.me.CreateBuilding(Camera.main.ScreenToWorldPoint(pointerData.position));
-                buildFlag = false;
-            }
-            else
-            {
-                buildFlag = true;
-            }
         }
     }
 
@@ -75,10 +64,9 @@ public class PanelController : MonoBehaviour
         GetComponent<CanvasGroup>().alpha = 0;
     }
 
-    public void CleanBuilding()
+    public void CleanBuildStore()
     {
-        BuildingStore.me.CleanSelectedBuilding();
-        buildFlag = false;
+        BuildingStore.me.CleanSelected();
     }
 
     private void TurnOffLastActionShower()

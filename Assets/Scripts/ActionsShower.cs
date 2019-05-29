@@ -24,7 +24,7 @@ public class ActionsShower : MonoBehaviour
 
         ShowPanel(pc);
         SetActionEnabled(true);
-        pc.CleanBuilding();
+        pc.CleanBuildStore();
 
     }
 

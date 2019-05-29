@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4213913798501158}
   - component: {fileID: 212819840946901126}
+  - component: {fileID: 6554655673629493258}
   - component: {fileID: 61804378297001636}
   - component: {fileID: 114817239439886596}
   - component: {fileID: 114262480425074574}
@@ -17,7 +18,6 @@ GameObject:
   - component: {fileID: 114231299906788270}
   - component: {fileID: 114895423541630552}
   - component: {fileID: 114243048624058518}
-  - component: {fileID: 1045877320536921055}
   m_Layer: 9
   m_Name: Worker
   m_TagString: Untagged
@@ -87,6 +87,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6554655673629493258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397696417241734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0893af451f44a44db82dc4e8a917b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  foodCost: 0
+  woodCost: 0
+  stoneCost: 0
+  goldCost: 0
+  buildingSprite: {fileID: 0}
+  HP: 10
+  EatAmount: 1
+  EatTime: 5
+  NoFoodHPPenalty: 1
 --- !u!61 &61804378297001636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,6 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8377bc23f7bd47f0846894d9d59c31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetDelta: 3
+  amount: 0.001
 --- !u!114 &114231299906788270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,17 +254,3 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &1045877320536921055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397696417241734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf2019c3e39d6e4cabeaad7d740cac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eatAmount: 1
-  eatTime: 5

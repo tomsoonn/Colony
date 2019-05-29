@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4619410475342472}
   - component: {fileID: 212830274536278390}
+  - component: {fileID: 749426578706623524}
   - component: {fileID: 61180085087877104}
   - component: {fileID: 114152750411651054}
   - component: {fileID: 3289533955864034736}
@@ -82,6 +83,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &749426578706623524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800118816292156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7946d475847fde54badc01324f9f9a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  foodCost: 0
+  woodCost: 0
+  stoneCost: 0
+  goldCost: 0
+  buildingSprite: {fileID: 0}
+  HP: 10
+  EatAmount: 1
+  EatTime: 5
+  NoFoodHPPenalty: 1
 --- !u!61 &61180085087877104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,5 +156,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf2019c3e39d6e4cabeaad7d740cac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eatAmount: 1
-  eatTime: 5
+  name: 
+  foodCost: 0
+  woodCost: 0
+  stoneCost: 0
+  goldCost: 0
+  buildingSprite: {fileID: 0}
+  HP: 10
+  EatAmount: 1
+  EatTime: 5
+  NoFoodHPPenalty: 1

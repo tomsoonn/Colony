@@ -9,10 +9,13 @@ public class BuildingStore : MonoBehaviour
 {
     public static BuildingStore me;
     public GameObject[] buildings;
+    public GameObject[] units;
     [SerializeField]
-    GameObject selectedBuilding;
+    GameObject selectedToBuild;
 
     public List<Building> buildingsInScene;
+
+    int timer; //delay for setting selectedToBuild
 
     void Awake()
     {
@@ -33,17 +36,23 @@ public class BuildingStore : MonoBehaviour
 
     public GameObject GetToBuild()
     {
-        return selectedBuilding;
+        return selectedToBuild;
     }
 
-    public void CleanSelectedBuilding()
+    public void CleanSelected()
     {
-        selectedBuilding = null;
+        selectedToBuild = null;
+    }
+
+    IEnumerator Select(GameObject g)
+    {
+        yield return new WaitForSeconds(0.1f);
+        selectedToBuild = g;
     }
 
     public void CreateBuilding(Vector2 vector2)
     {
-        GameObject selectedBuilding = BuildingStore.me.GetToBuild();
+        GameObject selectedBuilding = GetToBuild();
         if (selectedBuilding != null)
         {
             Building selectedBuildScript = selectedBuilding.GetComponent<Building>();
@@ -52,7 +61,7 @@ public class BuildingStore : MonoBehaviour
                 if (ResourceManager.me.CanWeBulid(selectedBuildScript))
                 {
                     Vector3 spawnPos = new Vector3(vector2.x, vector2.y, 0);
-                    GameObject built = (GameObject)Instantiate(BuildingStore.me.GetToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
+                    GameObject built = (GameObject)Instantiate(GetToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
                     SpriteRenderer sr = built.AddComponent<SpriteRenderer>();
                     sr.sprite = built.GetComponent<Building>().buildingSprite;
                     sr.sortingOrder = 10;
@@ -64,7 +73,30 @@ public class BuildingStore : MonoBehaviour
                     {
                         UnitsManager.me.AddHouse(built);
                     }
-                    Debug.Log("Building built");
+                    Debug.Log("Building builded");
+                }
+                else
+                {
+                    //TODO Not enough resources warning
+                    Debug.Log("Not enough resources");
+                }
+            }
+            Unit selectedUnitScript = selectedBuilding.GetComponent<Unit>();
+            if (selectedUnitScript != null)
+            {
+                if (ResourceManager.me.CanWeBuildUnit(selectedUnitScript))
+                {
+                    Vector3 spawnPos = new Vector3(vector2.x, vector2.y, 0);
+                    GameObject built = (GameObject)Instantiate(GetToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
+                    //SpriteRenderer sr = built.AddComponent<SpriteRenderer>();
+                    //sr.sprite = built.GetComponent<Unit>().buildingSprite;
+                    //sr.sortingOrder = 10;
+                    //built.AddComponent<BoxCollider2D>();
+                    built.SetActive(true);
+                    UnitsManager.me.addUnit(built);
+                    ResourceManager.me.BuildUnit(selectedUnitScript);
+                  
+                    Debug.Log("Unit created");
                 }
                 else
                 {
@@ -73,7 +105,7 @@ public class BuildingStore : MonoBehaviour
                 }
             }
         }
-        CleanSelectedBuilding();
+        CleanSelected();
 
     }
 
@@ -89,7 +121,7 @@ public class BuildingStore : MonoBehaviour
                 Rect pos = new Rect(10, 50 + (30 * yMod), 70, 30);
                 if (GUI.Button(pos, buildingScr.name))
                 {
-                    selectedBuilding = b;
+                    StartCoroutine(Select(b));
                     PanelController.me.Clean();
                 }
                 yMod += 1;
@@ -97,6 +129,25 @@ public class BuildingStore : MonoBehaviour
             catch
             {
                 Debug.Log("Building missing a component");
+            }
+        }
+        foreach (GameObject u in units)
+        {
+
+            try
+            {
+                Unit unitScr = u.GetComponent<Unit>();
+                Rect pos = new Rect(10, 50 + (30 * yMod), 70, 30);
+                if (GUI.Button(pos, unitScr.name))
+                {
+                    StartCoroutine(Select(u));
+                    PanelController.me.Clean();
+                }
+                yMod += 1;
+            }
+            catch
+            {
+                Debug.Log("Unit missing a component");
             }
         }
     }

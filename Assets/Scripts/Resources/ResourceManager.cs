@@ -120,7 +120,23 @@ public class ResourceManager : MonoBehaviour
             && CheckResourceAmount("gold", ba.goldCost));
     }
 
+    public bool CanWeBuildUnit(Unit u)
+    {
+        return (CheckResourceAmount("wood", u.woodCost)
+           && CheckResourceAmount("food", u.foodCost)
+           && CheckResourceAmount("stone", u.stoneCost)
+           && CheckResourceAmount("gold", u.goldCost));
+    }
+
     public void BuildBuilding(Building toBuild)
+    {
+        ReduceResources("wood", toBuild.woodCost);
+        ReduceResources("food", toBuild.foodCost);
+        ReduceResources("stone", toBuild.stoneCost);
+        ReduceResources("gold", toBuild.goldCost);
+    }
+
+    public void BuildUnit(Unit toBuild)
     {
         ReduceResources("wood", toBuild.woodCost);
         ReduceResources("food", toBuild.foodCost);

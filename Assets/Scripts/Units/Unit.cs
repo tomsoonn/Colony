@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public string name;
+    public int foodCost, woodCost, stoneCost, goldCost;
+    public Sprite buildingSprite;
+    SpriteRenderer sr;
+
     public int HP = 10;
     public int EatAmount = 1;
     public float EatTime = 5.0f;
