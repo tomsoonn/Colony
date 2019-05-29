@@ -568,26 +568,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &367981548 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 959878809041297667, guid: a3f70b5dd1a6a4b1b83cc1129dd8b28d,
-    type: 3}
-  m_PrefabInstance: {fileID: 665277371}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &367981556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367981548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24a0b6526f44d39a1ad51d643172f5b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 20
-  Health: 20
 --- !u!1 &382195838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +2239,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 959878809041297667, guid: a3f70b5dd1a6a4b1b83cc1129dd8b28d,
+        type: 3}
+      propertyPath: m_Name
+      value: "En\x1Aemy"
+      objectReference: {fileID: 0}
     - target: {fileID: 4869470500866078, guid: a3f70b5dd1a6a4b1b83cc1129dd8b28d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.82
@@ -2330,11 +2315,6 @@ PrefabInstance:
         type: 3}
       propertyPath: height
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 959878809041297667, guid: a3f70b5dd1a6a4b1b83cc1129dd8b28d,
-        type: 3}
-      propertyPath: m_Name
-      value: "En\x1Aemy"
       objectReference: {fileID: 0}
     - target: {fileID: 959878808277382826, guid: a3f70b5dd1a6a4b1b83cc1129dd8b28d,
         type: 3}
