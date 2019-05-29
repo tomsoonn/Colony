@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8377bc23f7bd47f0846894d9d59c31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDelta: 3
+  targetDelta: 2
   amount: 0.001
 --- !u!114 &114231299906788270
 MonoBehaviour:

@@ -55,7 +55,7 @@ public class UnitsManager : MonoBehaviour
 
     public bool canWeConstructUnit()
     {
-        return populationLimit >= currentPoplualtion;
+        return populationLimit > currentPoplualtion;
     }
 
     void Update()

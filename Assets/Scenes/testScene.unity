@@ -2665,7 +2665,7 @@ PrefabInstance:
     - target: {fileID: 114998933363135308, guid: c28682dc79b2341658ece6e278f0e4c5,
         type: 3}
       propertyPath: targetDelta
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 114998933363135308, guid: c28682dc79b2341658ece6e278f0e4c5,
         type: 3}
@@ -22902,10 +22902,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a2d528668b60948b887bbb75eb2b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 10
-  wood: 30
-  stone: 15
-  gold: 5
+  food: 50
+  wood: 60
+  stone: 30
+  gold: 10
 --- !u!4 &1574987635
 Transform:
   m_ObjectHideFlags: 0

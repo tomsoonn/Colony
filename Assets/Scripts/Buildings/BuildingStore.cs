@@ -78,13 +78,13 @@ public class BuildingStore : MonoBehaviour
                 else
                 {
                     //TODO Not enough resources warning
-                    Debug.Log("Not enough resources");
+                    Debug.Log("Not enough resources");  
                 }
             }
             Unit selectedUnitScript = selectedBuilding.GetComponent<Unit>();
             if (selectedUnitScript != null)
             {
-                if (ResourceManager.me.CanWeBuildUnit(selectedUnitScript))
+                if (ResourceManager.me.CanWeBuildUnit(selectedUnitScript) && UnitsManager.me.canWeConstructUnit())
                 {
                     Vector3 spawnPos = new Vector3(vector2.x, vector2.y, 0);
                     GameObject built = (GameObject)Instantiate(GetToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
@@ -97,6 +97,11 @@ public class BuildingStore : MonoBehaviour
                     ResourceManager.me.BuildUnit(selectedUnitScript);
                   
                     Debug.Log("Unit created");
+                }
+                else if (!UnitsManager.me.canWeConstructUnit())
+                {
+                    //TODO Population limit reached warning
+                    Debug.Log("Population limit reached");
                 }
                 else
                 {
