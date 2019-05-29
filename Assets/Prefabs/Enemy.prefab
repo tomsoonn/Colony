@@ -132,11 +132,12 @@ GameObject:
   - component: {fileID: 959878809041297679}
   - component: {fileID: 959878809041297678}
   - component: {fileID: 959878809041297677}
-  - component: {fileID: 959878809041297676}
   - component: {fileID: 959878809041297672}
-  - component: {fileID: 6876987922672147321}
+  - component: {fileID: 7759760644346127491}
+  - component: {fileID: 7527548462551637488}
+  - component: {fileID: 4728265045231657485}
   m_Layer: 0
-  m_Name: AIPatrol
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,19 +241,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   delay: 0.5
---- !u!114 &959878809041297676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959878809041297667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a53dcc2de3b89dcc97fc93b1dccd1f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetUnit: {fileID: 0}
 --- !u!114 &959878809041297672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &6876987922672147321
+--- !u!114 &7759760644346127491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,7 +264,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 959878809041297667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fdcc9f26936c6445ba682132b2f5feb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cdccb54c6b9c794694d535f34564845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 20
+  Health: 20
+--- !u!114 &7527548462551637488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959878809041297667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95a4f06f6a45dc4f8038c157b707410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetUnit: {fileID: 0}
+--- !u!114 &4728265045231657485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959878809041297667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a70e94577ea6a4f9f2ff08e0dff465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DeltaDistance: 3
