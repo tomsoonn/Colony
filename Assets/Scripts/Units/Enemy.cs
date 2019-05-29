@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Warrior : Unit
+public class Enemy : MonoBehaviour
 {
+    public int attack = 1;
+    public int HP = 10;
 
-    public int attack = 2;
     // Start is called before the first frame update
     void Start()
     {
-        name = "Warrior";
+        
     }
 
     // Update is called once per frame

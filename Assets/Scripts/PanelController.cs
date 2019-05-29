@@ -51,7 +51,7 @@ public class PanelController : MonoBehaviour
         GameObject selectedBuilding = BuildingStore.me.GetToBuild();
         if (selectedBuilding != null)
         {
-                BuildingStore.me.CreateBuilding(Camera.main.ScreenToWorldPoint(pointerData.position));
+                BuildingStore.me.CreateSelected(Camera.main.ScreenToWorldPoint(pointerData.position));
         }
     }
 

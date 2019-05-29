@@ -50,7 +50,7 @@ public class BuildingStore : MonoBehaviour
         selectedToBuild = g;
     }
 
-    public void CreateBuilding(Vector2 vector2)
+    public void CreateSelected(Vector2 vector2)
     {
         GameObject selectedBuilding = GetToBuild();
         if (selectedBuilding != null)
