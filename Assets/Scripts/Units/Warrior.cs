@@ -13,6 +13,7 @@ public class Warrior : Unit
     {
         name = "Warrior";
         StartCoroutine("Attack");
+        StartCoroutine("EatFood");
     }
 
     private IEnumerator Attack()

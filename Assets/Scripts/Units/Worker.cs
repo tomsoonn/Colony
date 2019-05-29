@@ -8,6 +8,7 @@ public class Worker : Unit
     void Start()
     {
         name = "Worker";
+        StartCoroutine("EatFood");
     }
 
 }

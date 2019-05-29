@@ -22972,7 +22972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a2d528668b60948b887bbb75eb2b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 50
+  food: 0
   wood: 60
   stone: 30
   gold: 10

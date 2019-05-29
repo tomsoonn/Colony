@@ -15,7 +15,9 @@ public class BuildingStore : MonoBehaviour
 
     public List<Building> buildingsInScene;
 
-    int timer; //delay for setting selectedToBuild
+    float timer = 0.1f; //delay for setting selectedToBuild
+
+    string warning = null;
 
     void Awake()
     {
@@ -42,11 +44,18 @@ public class BuildingStore : MonoBehaviour
     public void CleanSelected()
     {
         selectedToBuild = null;
+        StartCoroutine(CleanWarning());
+    }
+
+    IEnumerator CleanWarning()
+    {
+        yield return new WaitForSeconds(2.0f);
+        warning = null;
     }
 
     IEnumerator Select(GameObject g)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(timer);
         selectedToBuild = g;
     }
 
@@ -78,6 +87,7 @@ public class BuildingStore : MonoBehaviour
                 else
                 {
                     //TODO Not enough resources warning
+                    warning = "Not enough resources";
                     Debug.Log("Not enough resources");  
                 }
             }
@@ -100,12 +110,12 @@ public class BuildingStore : MonoBehaviour
                 }
                 else if (!UnitsManager.me.canWeConstructUnit())
                 {
-                    //TODO Population limit reached warning
+                    warning = "Population limit reached";
                     Debug.Log("Population limit reached");
                 }
                 else
                 {
-                    //TODO Not enough resources warning
+                    warning = "Not enough resources";
                     Debug.Log("Not enough resources");
                 }
             }
@@ -173,6 +183,12 @@ public class BuildingStore : MonoBehaviour
             {
                 GUI.Box(pos1, selectedUnitScript.CostString());
             }
+        }
+        if (warning != null)
+        {
+            Rect pos1 = new Rect(10, 30, 150, 20);
+            GUI.skin.box.fontSize = 12;
+            GUI.Box(pos1, warning);
         }
         
     }
