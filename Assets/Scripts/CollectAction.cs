@@ -56,24 +56,27 @@ public class CollectAction : Action
         for (;;)
         {
             yield return new WaitForSeconds(CollectSpeed);
-            if (_resourceTarget != null &&
-                Vector3.Distance(_resourceTarget.transform.position, gameObject.transform.position) < targetDelta)
+            if (_resourceTarget != null)
             {
-                if (_mined > 1)
+                var x = Vector3.Distance(_resourceTarget.transform.position, gameObject.transform.position);
+                if (x < targetDelta)
                 {
-                    _mined -= 1;
-                    var resourceManager = GameObject.Find("GameController").GetComponent<ResourceManager>();
-                    Resource res = _resourceTarget.GetComponent<Resource>();
-                    resourceManager.ChangeResourceAmount(res, 1);
+                    if (_mined > 1)
+                    {
+                        _mined -= 1;
+                        var resourceManager = GameObject.Find("GameController").GetComponent<ResourceManager>();
+                        Resource res = _resourceTarget.GetComponent<Resource>();
+                        resourceManager.ChangeResourceAmount(res, 1);
+                    }
+                    else
+                    {
+                        _mined += CollectAmount;
+                    }
                 }
                 else
                 {
-                    _mined += CollectAmount;
+                    _mined = 0;
                 }
-            }
-            else
-            {
-                _mined = 0;
             }
         }
     }
