@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 6876987922672147321}
   m_Layer: 0
   m_Name: AIPatrol
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,3 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdcc9f26936c6445ba682132b2f5feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeltaDistance: 3
+  AttackStrength: 0.3
+  AttackSpeed: 0.1
