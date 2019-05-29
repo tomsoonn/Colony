@@ -11,10 +11,4 @@ public class Warrior : Unit
     {
         name = "Warrior";
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

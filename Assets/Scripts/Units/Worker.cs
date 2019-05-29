@@ -10,9 +10,4 @@ public class Worker : Unit
         name = "Worker";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

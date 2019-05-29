@@ -1,4 +1,5 @@
-﻿using Pathfinding;
+﻿using System.Collections;
+using Pathfinding;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,19 +7,21 @@ public class CollectAction : Action
 {
     private GameObject _target;
     public float targetDelta = 3f;
-    public float amount = 0.001f;
+    public float CollectAmount = 0.3f;
+    public float CollectSpeed = 0.5f;
 
     private float _mined = 0;
     private GameObject _resourceTarget;
 
     private void Start()
     {
-        Selectable  = GameObject.Find("Canvas")
+        Selectable = GameObject.Find("Canvas")
             .transform.Find("ActionPanel")
             .transform.Find("CollectButton")
             .GetComponent<Toggle>();
         _target = new GameObject("targetMoveAction");
         _target.transform.SetParent(GameObject.Find("Astar").GetComponent<AstarPath>().transform);
+        StartCoroutine("Collect");
     }
 
     public override void MakeAction(Vector2 vector2)
@@ -48,27 +51,30 @@ public class CollectAction : Action
         Debug.Log("end");
     }
 
-    private void Update()
+    private IEnumerator Collect()
     {
-        if (_resourceTarget != null && 
-            Vector3.Distance(_resourceTarget.transform.position, gameObject.transform.position) < targetDelta)
+        for (;;)
         {
-            var resourceManager = GameObject.Find("GameController").GetComponent<ResourceManager>();
-            Resource res = _resourceTarget.GetComponent<Resource>();
-
-            if (_mined > 1)
+            yield return new WaitForSeconds(CollectSpeed);
+            if (_resourceTarget != null &&
+                Vector3.Distance(_resourceTarget.transform.position, gameObject.transform.position) < targetDelta)
             {
-                _mined -= 1;
-                resourceManager.ChangeResourceAmount(res, 1);
+                if (_mined > 1)
+                {
+                    _mined -= 1;
+                    var resourceManager = GameObject.Find("GameController").GetComponent<ResourceManager>();
+                    Resource res = _resourceTarget.GetComponent<Resource>();
+                    resourceManager.ChangeResourceAmount(res, 1);
+                }
+                else
+                {
+                    _mined += CollectAmount;
+                }
             }
             else
             {
-                _mined += amount;
+                _mined = 0;
             }
-        }
-        else
-        {
-            _mined = 0;
         }
     }
 }
