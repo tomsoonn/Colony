@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,7 +18,7 @@ public class BuildingStore : MonoBehaviour
 
     float timer = 0.1f; //delay for setting selectedToBuild
 
-    string warning = null;
+    string warning = "";
 
     void Awake()
     {
@@ -50,7 +51,7 @@ public class BuildingStore : MonoBehaviour
     IEnumerator CleanWarning()
     {
         yield return new WaitForSeconds(2.0f);
-        warning = null;
+        warning = "";
     }
 
     IEnumerator Select(GameObject g)
@@ -184,7 +185,7 @@ public class BuildingStore : MonoBehaviour
                 GUI.Box(pos1, selectedUnitScript.CostString());
             }
         }
-        if (warning != null)
+        if (!String.IsNullOrEmpty(warning))
         {
             Rect pos1 = new Rect(10, 30, 150, 20);
             GUI.skin.box.fontSize = 12;
