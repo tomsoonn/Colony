@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 749426578706623524}
   - component: {fileID: 61180085087877104}
   - component: {fileID: 114152750411651054}
+  - component: {fileID: 7032916354160123782}
   - component: {fileID: 3289533955864034736}
   - component: {fileID: 240853653921832449}
   - component: {fileID: 51735964917238095}
@@ -108,7 +109,9 @@ MonoBehaviour:
   EatAmount: 1
   EatTime: 5
   NoFoodHPPenalty: 1
-  attack: 2
+  DeltaDistance: 3
+  AttackDamage: 1
+  AttackTime: 0.5
 --- !u!61 &61180085087877104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +150,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef844c0eed1a440cb8b6efc7b0dcf47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 7032916354160123782}
+--- !u!114 &7032916354160123782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800118816292156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65fd4f35628c45d18c362f50352812b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3289533955864034736
 MonoBehaviour:
   m_ObjectHideFlags: 0
