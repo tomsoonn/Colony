@@ -13,7 +13,10 @@ public class CollectAction : Action
 
     private void Start()
     {
-        Selectable = GameObject.Find("CollectButton").GetComponent<Toggle>();
+        Selectable  = GameObject.Find("Canvas")
+            .transform.Find("ActionPanel")
+            .transform.Find("CollectButton")
+            .GetComponent<Toggle>();
         _target = new GameObject("targetMoveAction");
         _target.transform.SetParent(GameObject.Find("Astar").GetComponent<AstarPath>().transform);
     }

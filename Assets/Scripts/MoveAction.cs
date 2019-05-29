@@ -11,7 +11,10 @@ public class MoveAction : Action
 
     private void Start()
     {
-        Selectable = GameObject.Find("MoveButton").GetComponent<Toggle>();
+        Selectable  = GameObject.Find("Canvas")
+            .transform.Find("ActionPanel")
+            .transform.Find("MoveButton")
+            .GetComponent<Toggle>();
         _target = new GameObject("targetMoveAction");
         _target.transform.SetParent(GameObject.Find("Astar").GetComponent<AstarPath>().transform);
     }
