@@ -124,8 +124,10 @@ public class BuildingStore : MonoBehaviour
             {
                 Building buildingScr = b.GetComponent<Building>();
                 Rect pos = new Rect(10, 50 + (30 * yMod), 70, 30);
+
                 if (GUI.Button(pos, buildingScr.name))
                 {
+                    CleanSelected();
                     StartCoroutine(Select(b));
                     PanelController.me.Clean();
                 }
@@ -145,6 +147,7 @@ public class BuildingStore : MonoBehaviour
                 Rect pos = new Rect(10, 50 + (30 * yMod), 70, 30);
                 if (GUI.Button(pos, unitScr.name))
                 {
+                    CleanSelected();
                     StartCoroutine(Select(u));
                     PanelController.me.Clean();
                 }
@@ -155,5 +158,22 @@ public class BuildingStore : MonoBehaviour
                 Debug.Log("Unit missing a component");
             }
         }
+
+        if (selectedToBuild)
+        {
+            Rect pos1 = new Rect(10, 50 + 30 * yMod, 70, 80);
+            GUI.skin.box.fontSize = 12;
+            Building selectedBuildScript = GetToBuild().GetComponent<Building>();
+            if (selectedBuildScript != null)
+            {
+                GUI.Box(pos1, selectedBuildScript.CostString());
+            }
+            Unit selectedUnitScript = GetToBuild().GetComponent<Unit>();
+            if (selectedUnitScript != null)
+            {
+                GUI.Box(pos1, selectedUnitScript.CostString());
+            }
+        }
+        
     }
 }

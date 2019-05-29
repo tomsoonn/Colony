@@ -833,6 +833,16 @@ PrefabInstance:
       propertyPath: name
       value: Worker
       objectReference: {fileID: 0}
+    - target: {fileID: 6554655673629493258, guid: c28682dc79b2341658ece6e278f0e4c5,
+        type: 3}
+      propertyPath: foodCost
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554655673629493258, guid: c28682dc79b2341658ece6e278f0e4c5,
+        type: 3}
+      propertyPath: woodCost
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c28682dc79b2341658ece6e278f0e4c5, type: 3}
 --- !u!1 &492977801
@@ -3007,6 +3017,26 @@ PrefabInstance:
         type: 3}
       propertyPath: name
       value: Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 749426578706623524, guid: c59887df4a4b84149afffda3e9ea387d,
+        type: 3}
+      propertyPath: foodCost
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 749426578706623524, guid: c59887df4a4b84149afffda3e9ea387d,
+        type: 3}
+      propertyPath: woodCost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 749426578706623524, guid: c59887df4a4b84149afffda3e9ea387d,
+        type: 3}
+      propertyPath: stoneCost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 749426578706623524, guid: c59887df4a4b84149afffda3e9ea387d,
+        type: 3}
+      propertyPath: goldCost
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c59887df4a4b84149afffda3e9ea387d, type: 3}

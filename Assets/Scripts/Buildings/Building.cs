@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,5 +25,10 @@ public class Building : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public string CostString()
+    {
+        return String.Format("Cost\nFood: {0}\nWood: {1}\nStone: {2}\nGold: {3}", foodCost, woodCost, stoneCost, goldCost);
     }
 }

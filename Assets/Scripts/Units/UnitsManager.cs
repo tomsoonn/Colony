@@ -86,6 +86,7 @@ public class UnitsManager : MonoBehaviour
         scale.z = 1;
         var svMat = GUI.matrix;
         GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, scale);
+        GUI.skin.box.fontSize = 50;
 
         Rect pos = new Rect(dispWidth * 4, 0, dispWidth, 100);
         GUI.Box(pos, "Units: " + currentPoplualtion + "/" + populationLimit);
